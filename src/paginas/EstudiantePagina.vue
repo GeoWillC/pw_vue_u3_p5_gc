@@ -1,6 +1,7 @@
 <template>
     <h1>Pagina Estudiante</h1>
     <Estudiante></Estudiante>
+    
 </template>
   
 <script>

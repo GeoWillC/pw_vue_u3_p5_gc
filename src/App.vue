@@ -1,11 +1,14 @@
 <template>
   
-  <EstudiantePagina></EstudiantePagina>
+
+  <!-- llamada a router -->
+  <router-view/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import EstudiantePagina from '../src/paginas/EstudiantePagina.vue'
+
 
 export default {
   name: 'App',
