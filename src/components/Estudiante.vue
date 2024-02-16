@@ -1,15 +1,17 @@
 <template>
   <h1>Componente Estudiante</h1>
-  <input v-model="id" type="text">
+  <input v-model="id" type="text" placeholder="Ingrese el id">
   <button @click="consultarPorId">Consultar</button>
-  <button @click="consultarPorId">Eliminar</button>
+  <button @click="actualizar">Actualizar</button>
+  <button @click="eliminar">Eliminar</button>
+
   <p></p>
   <div class="form">
     <h3>Datos del estudiante</h3>
     <p>Nombre</p>
-    <input v-model="nombre" type="text">
+    <input v-model="nombre" type="text" placeholder="Ingrese nombre">
     <p>Apellido</p>
-    <input v-model="apellido" type="text">
+    <input v-model="apellido" type="text" placeholder="Ingrese apellido">
     <p>Cedula</p>
     <input v-model="cedula" type="text">
     <p>Edad</p>
@@ -32,7 +34,7 @@
   
 <script>
 // {nombre de la funcion que queremos importar}
-import { consultarEstudianteIdFachada, insertarFachada } from '../helpers/clienteEstudiante.js'
+import { consultarEstudianteIdFachada, insertarFachada, actualizarFachada,eliminarFachada } from '../helpers/clienteEstudiante.js'
 
 export default {
   data() {
@@ -80,9 +82,40 @@ export default {
       }
       await insertarFachada(estuBody);
       console.log(estuBody)
+    },
+    async actualizar(){
+      const body = {
+        name: this.nombre,
+        apellido: this.apellido,
+        genero: this.genero,
+        fechaNacimiento: this.fechaNacimiento,
+        cedula: this.cedula,
+        edad: this.edad,
+        hobby: this.hobby,
+        paralelo: this.paralelo,
+        anio: this.anio
+      }
+      console.log(body)
+      await actualizarFachada(this.id,body)
+    },
+    async eliminar(){
+      console.log("Id eliminado")
+      console.log(this.id)
+      await eliminarFachada(this.id)
+      this.clean()
+    },
+    clean(){
+      this.nombre = null
+      this.apellido = null
+      this.cedula = null
+      this.edad = null
+      this.fechaNacimiento = null
+      this.genero = null
+      this.hobby = null
+      this.anio = null
+      this.paralelo = null
     }
   }
-
 }
 
 
