@@ -15,7 +15,8 @@ const routes = [
         component: () => import('@/paginas/EstudianteActualizar.vue')
     },
     {
-        path: '/consultar',
+        //PATH VARIABLE
+        path: '/consultar/:id',
         component: () => import('@/paginas/EstudianteConsultar.vue')
     },
     {

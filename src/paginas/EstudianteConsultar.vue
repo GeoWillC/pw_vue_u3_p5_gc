@@ -1,7 +1,7 @@
 <template>
    <h1>Pagina consultar</h1>
    <input v-model="id" type="text" placeholder="Ingrese el id">
-   <button @click="consultar">Consultar</button>
+   <button @click="consultarClick">Consultar</button>
    <p></p>
    <div class="form">
       <h3>Datos del estudiante</h3>
@@ -45,7 +45,8 @@ export default {
       }
    },
    methods:{
-      async consultar() {
+      async consultarClick() {
+         //
          console.log("alo")
          console.log(this.id)
          const data = await consultarEstudianteIdFachada(this.id);
@@ -60,7 +61,31 @@ export default {
          this.paralelo = data.paralelo
          console.log('Desde componente')
          console.log(data)
+      },
+      async consultar(pv) {
+         //
+         console.log(pv)
+         const data = await consultarEstudianteIdFachada(pv);
+         this.nombre = data.name
+         this.apellido = data.apellido
+         this.cedula = data.cedula
+         this.edad = data.edad
+         this.fechaNacimiento = data.fechaNacimiento
+         this.genero = data.genero
+         this.hobby = data.hobby
+         this.anio = data.anio
+         this.paralelo = data.paralelo
+         console.log('Desde componente')
+         console.log(data)
       }
+   },
+   created(){
+      console.log(this.$route)
+      console.log(this.$route.params.id)
+      console.log(this.$route.query.anio)
+      console.log(this.$route.query.edad)
+      this.consultar(this.$route.params.id)
+      
    }
 }
 </script>
