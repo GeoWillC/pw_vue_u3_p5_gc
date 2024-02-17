@@ -34,7 +34,10 @@
   
 <script>
 // {nombre de la funcion que queremos importar}
-import { consultarEstudianteIdFachada, insertarFachada, actualizarFachada,eliminarFachada } from '../helpers/clienteEstudiante.js'
+import { consultarEstudianteIdFachada, 
+  insertarFachada, 
+  actualizarFachada,
+  eliminarFachada } from '../helpers/clienteEstudiante.js'
 
 export default {
   data() {

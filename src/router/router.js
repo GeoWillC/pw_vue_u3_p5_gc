@@ -28,6 +28,6 @@ const routes = [
 ]
 //Config de router
 //enviar json
-const router = createRouter({history:createWebHashHistory(),routes})
+const router = createRouter({ history: createWebHashHistory(), routes })
 
 export default router
