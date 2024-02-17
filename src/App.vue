@@ -1,11 +1,13 @@
 <template>
-  
-
+  <h1>Universidad Central del Ecuador
+  </h1>
+  <NavBar></NavBar>
   <!-- llamada a router -->
   <router-view/>
 </template>
 
 <script>
+import NavBar from './components/NavBar.vue'
 import HelloWorld from './components/HelloWorld.vue'
 import EstudiantePagina from '../src/paginas/EstudiantePagina.vue'
 
@@ -14,7 +16,8 @@ export default {
   name: 'App',
   components: {
     HelloWorld,
-    EstudiantePagina
+    EstudiantePagina,
+    NavBar
   }
 }
 </script>

@@ -5,25 +5,31 @@ import EstudianteActualizar from '../paginas/EstudianteActualizar.vue'
 import EstudianteConsultar from '../paginas/EstudianteConsultar.vue'
 import EstudianteEliminar from '../paginas/EstudianteEliminar.vue'
 import EstudianteGuardar from '../paginas/EstudianteGuardar.vue'
+import NoFoundPage from '../paginas/NoFoundPage.vue'
 
 //configuracion de rutas
 //tipos de objeto con dos atributos
 const routes = [
     {
         path: '/actualizar',
-        component: EstudianteActualizar
+        component: () => import('@/paginas/EstudianteActualizar.vue')
     },
     {
         path: '/consultar',
-        component: EstudianteConsultar
+        component: () => import('@/paginas/EstudianteConsultar.vue')
     },
     {
         path: '/eliminar',
-        component: EstudianteEliminar
+        component: () => import('@/paginas/EstudianteEliminar.vue')
     },
     {
         path: '/guardar',
-        component: EstudianteGuardar
+        component: () => import('@/paginas/EstudianteGuardar.vue')
+    },
+    {
+        //wildcard  ej: 2XXX
+        path: '/:pathMatch(.*)*',
+        component: () => import('@/paginas/NoFoundPage.vue')
     }
 ]
 //Config de router
